@@ -1,0 +1,46 @@
+﻿<div>
+    <br />
+    <strong>Steps:</strong>
+    <br />
+    <ol>
+        <li>Open Fiddler</li>
+        <li>Register a user: http://localhost:53182/api/account/register <br />
+            Select Action: POST<br />
+            Add to the header:"Content-type: application/json" <br />
+            Add to the body (i.e.): "{'UserName': 'Britney','Password': '123456','ConfirmPassword': '123456'}"<br />
+            Execute.
+        </li>
+        <li>Get user token for authentication: http://localhost:53182/token <br />
+            Select Action: GET<br />
+            Add to the header:"Content-type: application/x-www-form-urlencoded"<br />
+            Add to the body (i.e.): "username= Britney&password=123456"<br />
+            Execute.<br />
+            Copy the token from the response.
+        </li>
+        <li>Get a client by username using the previous token: http://localhost:53182/api/clients?username=Manning <br />
+            Select Action: GET <br />
+            Add to the header:"Authorization: Bearer TOKEN" <br />
+            Execute.
+        </li>
+        <li>
+            Get a client by id using the previous token: http://localhost:53182/api/clients?id=e8fd159b-57c4-4d36-9bd7-a59ca13057bb <br />
+            Select Action: GET <br />
+            Add to the header:"Authorization: Bearer TOKEN" <br />
+            Execute.
+        </li>
+        <li>
+            Get a list of policies related to a client by username using the previous token: http://localhost:53182/api/policies?username=Manning <br />
+            Select Action: GET <br />
+            Add to the header:"Authorization: Bearer TOKEN" <br />
+            Execute.
+        </li>
+        <li>
+            Get a user linked to a policy by policy number using the previous token: http://localhost:53182/api/policies?id=64cceef9-3a01-49ae-a23b-3761b604800b <br />
+            Select Action: GET <br />
+            Add to the header:"Authorization: Bearer TOKEN" <br />
+            Execute.
+        </li>
+    </ol> 
+    <span>TOKEN = T8nVjXKMic5Ak9SpTikiBTKpRAoYJMd_0opm0uUZwQkNASibK3sXLSvSRRtcZfhugaKIzGR3ylzZ_t-s9PytAHHfhf7eH3FqPb0J1CWzrLv1SFVNkARSSlXzGZNMlErVvZjH4_onia_m32qYQb8T-1k95Yn41v7gPxxLPEzxVPfZY2LalCBLfz1IKL68VgErjBnLzaGkZrBI8apxhnhc1A2b2f9ATmh3YIahxYdciWWKVbS3rWhI0k7cwI31c2ZUDnJgdJ_Y6-lnEnAvHtfrysfm1fn_NalsOFHzGR2mwVEOnSFwrA4U2nsrDRkX5aUwnoH_Z3AG52EV2mbQPL8o7XMLD_xe8aG-ak4h7IMrixpfj2loKG4yGQBepCZvetOLhF-YVNIg_TO6KpLl_BcVZWLcPwotOUryyn69mksgfpM3VzLsQXiaNXMJoZe8rniEcQRqWpQakaD6Xl7wDb9iYcOI5HPPufv3b-Hr0feEqXo</span>
+</div>
+    
